@@ -1,0 +1,178 @@
+<!--
+    Partial ~ rating ~
+
+    Descripción: 
+        Partial para incluir en cualquier parte de tu tema y muestra en columnas tus artículos.
+        - Incluye la posibilidad de usar las estrellas como rating
+
+    Uso: Agrega este partial en cualquier lugar de tu tema donde desees mostrar los posts en columnas.
+
+    Parámetros:
+        - Usa posts from="x" to="x" para filtrar los post mostrados
+        - 
+    
+
+    Autor:
+    - Nombre: nacsan
+    - Mastodon: https://masto.es/@nacsan
+    - GitHub: https://github.com/nacsan
+    - Correo electrónico: me@nacsan.com
+-->
+
+
+
+
+
+
+
+
+
+
+<!--- 
+
+Importamos fuentes de Google
+
+--->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Yuji+Mai&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+<style>
+    /*
+    
+    Se carga el media query en pantalla y se ajusta con un máximo de archo de pantalla
+    
+    */
+    @media only screen and (max-width: 600px) {
+        section {
+        flex-direction: column;
+        align-items: center;
+        }
+
+        article {
+        width: 100%;
+        flex-basis: auto;
+        }
+
+        .star {
+        height: 20px;
+        }
+    }
+
+    /*
+
+    CSS de carga en escritorio.
+
+    */
+
+    body {
+        font-family: "outfit";
+    }
+    
+    section {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-left: auto;
+        margin-right: auto;
+        width: 85%;
+    }
+    article {
+        width: auto;
+        flex-basis: calc(33.333% - 20px);
+        margin: 10px;
+    }
+    h1 {
+        align-items: center;
+        font-size: 2.25rem;
+        width: 85%;
+        margin-bottom: 3%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h2 {
+        color:darkslategray;
+        font-size: 2.875rem;
+        
+
+    }
+    h3 {
+        color:lightslategrey
+    }
+    
+    img {
+        border-radius: 2%;
+        margin: 6% 0 6% 0;
+        
+    }
+    p {
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: medium;
+    }
+    .cover-picture{
+        overflow: hidden;
+        position: relative;
+        height: 200px;   
+        margin-bottom: 20px;
+    }
+    .cover-picture img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 70%;
+    min-height: 70%;
+}
+
+    .star {
+        height: 20px;
+    }
+    
+</style>
+
+<h1>👍🏻 Recomendaciones de los nuestros </h1>
+<section>
+    {{#foreach posts from="1" to="3"}}   
+        <article>
+            <h2>{{title}}</h2>
+            <h3>{{excerpt}}</h3>
+        
+            <!-- Post con etiqueta "one-star": muestra una estrella -->
+            {{#has tag="one-star"}}
+                <img src="/assets/images/star.png" alt="" class="star">
+            {{/has}}
+
+            <!-- Post con etiqueta "two-star": muestra dos estrella -->
+            {{#has tag="two-star"}}
+                <img src="/assets/images/star2.png" alt="" class="star">
+            {{/has}}
+
+            <!-- Post con etiqueta "three-star": muestra tres estrella -->
+            {{#has tag="three-star"}}
+                <img src="/assets/images/star3.png" alt="" class="star">
+            {{/has}}
+
+            <!-- Post con etiqueta "four-star": muestra cuatro estrellas -->    
+            {{#has tag="four-star"}}
+                <img src="/assets/images/star4.png" alt="" class="star">
+            {{/has}}
+
+
+            <!-- Post con etiqueta "five-star": muestra cinco estrellas -->
+            {{#has tag="five-star"}}
+                <img src="/assets/images/star5.png" alt="" class="star">
+            {{/has}}
+
+            <!-- Contenedor para la imagen destacada del post -->
+            <div class="cover-picture">
+            <img src={{img_url feature_image size="s"}} alt='' class=".cover"/>
+            </div>
+            <!-- Contenido completo del post -->
+            <p>{{content}}</p>
+        </article>
+    {{/foreach}}
+</section>
