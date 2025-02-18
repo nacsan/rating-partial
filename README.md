@@ -15,6 +15,21 @@ Partial para incluir en cualquier parte de tu tema y muestra en columnas tus art
 * **five_star**: 5 estrella
   
   
-  Uso: Agrega este partial en cualquier lugar de tu tema donde desees mostrar los posts en columnas.
+Es configurable en 
+`partials - ratings.hbs posts from="x" to="x"` el número de post que se muestran.
 
-    Parámetros:
+**Uso**: Agrega este partial en cualquier lugar de tu tema donde desees mostrar los posts en columnas.
+
+**Licencia** MIT https://mit-license.org/
+
+**Autor**
+
++ nacsan
++ https://nacsan.com
+* me@nacsan.com
+
+ ¡Unete a la comunidad! 📨
+
+Exploramos el software libre, la autogestión tecnológica y las redes descentralizadas del Fediverso para construir un internet más justo, ético y comunitario. 🔏 
+
+https://nacsan.com/#/portal/signup
